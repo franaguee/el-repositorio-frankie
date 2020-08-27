@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   fetchData();
 });
 function fetchData() {
-  fetch('https://git.heroku.com/frankie-2020.git')
+  fetch('https://frankie-2020.herokuapp.com/api/users')
     .then(res => res.json())
     .then(users => {
       populateTable(users);
@@ -28,7 +28,7 @@ function populateTable(users) {
 function fetchUser() {
   let id = document.getElementById('userID').value;
    if (isNaN(id)) return;
-  fetch(`https://git.heroku.com/frankie-2020.git${id}`)
+  fetch(`https://frankie-2020.herokuapp.com/api/user/${id}`)
     .then(res => res.json())
     .then(user => {
       let users = [user]; 
